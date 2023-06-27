@@ -2,6 +2,10 @@
 
 This is a Python program that generates cover letters based on your CV (Curriculum Vitae) and a LinkedIn job posting URL. The program utilizes the LLM (OpenAI API) to generate personalized and professional cover letters.
 
+## Demo
+hosted demo - https://coverlettergenerator.streamlit.app/
+(you will require an open ai api key)
+
 ## Prerequisites
 Before running the program, make sure you have the following prerequisites installed:
 
