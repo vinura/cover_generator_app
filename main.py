@@ -2,7 +2,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
-
+import os
 from pdf_reader import load_pdf
 from read_job_posting import extract_text_from_url
 from splitter import split_text_documents
@@ -16,7 +16,7 @@ def get_cover_letter(url, pdf, openai_api_key):
     pdf_doc.extend(job_post)
     documents = split_text_documents(pdf_doc)
 
-    vectordb = Chroma.from_documents(documents, embedding=OpenAIEmbeddings())
+    vectordb = Chroma.from_documents(documents, embedding=OpenAIEmbeddings(openai_api_key = openai_api_key))
 
     pdf_qa = RetrievalQA.from_chain_type(
         ChatOpenAI(temperature=0.7, model_name='gpt-3.5-turbo', openai_api_key = openai_api_key),
