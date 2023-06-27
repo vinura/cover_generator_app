@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
-
 from splitter import text_to_doc_splitter
+
 
 def extract_text_from_url(url):
     html = requests.get(url).text
